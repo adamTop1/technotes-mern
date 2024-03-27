@@ -10,6 +10,9 @@ import Welcome from './features/auth/Welcome'
 import NotesList from './features/notes/NotesList'
 import UsersList from './features/users/UsersList'
 
+import { store } from './app/store'
+import { Provider } from 'react-redux'
+
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -26,12 +29,14 @@ const router = createBrowserRouter([
 					{ path: 'users', children: [{ index: true, element: <UsersList /> }] },
 				],
 			},
-		], 
+		],
 	},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<Provider store={store}>
+			<RouterProvider router={router} />
+		</Provider>
 	</React.StrictMode>
 )
