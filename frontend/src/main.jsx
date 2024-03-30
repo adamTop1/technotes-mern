@@ -10,7 +10,7 @@ import Welcome from './features/auth/Welcome'
 import NotesList from './features/notes/NotesList'
 import UsersList from './features/users/UsersList'
 
-import { store } from './app/store'
+import { store } from '../app/store'
 import { Provider } from 'react-redux'
 
 const router = createBrowserRouter([
