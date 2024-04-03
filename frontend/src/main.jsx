@@ -9,9 +9,14 @@ import DashLayout from './components/DashLayout'
 import Welcome from './features/auth/Welcome'
 import NotesList from './features/notes/NotesList'
 import UsersList from './features/users/UsersList'
+import EditUser from './features/users/EditUser'
+import NewUserForm from './features/users/NewUserForm'
+import EditNote from './features/notes/EditNote'
+import NewNote from './features/notes/NewNote'
 
-import { store } from '../app/store'
+import { store } from './app/store'
 import { Provider } from 'react-redux'
+import EditUser from './features/users/EditUser'
 
 const router = createBrowserRouter([
 	{
@@ -25,8 +30,22 @@ const router = createBrowserRouter([
 				element: <DashLayout />,
 				children: [
 					{ index: true, element: <Welcome /> },
-					{ path: 'notes', children: [{ index: true, element: <NotesList /> }] },
-					{ path: 'users', children: [{ index: true, element: <UsersList /> }] },
+					{
+						path: 'users',
+						children: [
+							{ index: true, element: <UsersList /> },
+							{ path: ':id', element: <EditUser /> },
+							{ path: 'new', element: <NewUserForm /> },
+						],
+					},
+					{
+						path: 'notes',
+						children: [
+							{ index: true, element: <NotesList /> },
+							{ path: ':id', element: <EditNote /> },
+							{ path: 'new', element: <NewNote /> },
+						],
+					},
 				],
 			},
 		],
