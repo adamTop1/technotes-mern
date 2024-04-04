@@ -16,7 +16,6 @@ import NewNote from './features/notes/NewNote'
 
 import { store } from './app/store'
 import { Provider } from 'react-redux'
-import EditUser from './features/users/EditUser'
 
 const router = createBrowserRouter([
 	{
